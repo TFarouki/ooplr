@@ -1,11 +1,11 @@
 <?php
   session_start();
   $GLOBALS['config'] = array(
-    'mysql' => array(
-      'host' => '127.0.0.1',
+    'MariaDB' => array(
+      'host' => '127.0.0.1:3307',
       'username' => 'root',
       'password' => '',
-      'db' => 'test'
+      'db' => 'lr'
     ),
     'remember' =>  array(
       'cookie_name' => 'hash',
