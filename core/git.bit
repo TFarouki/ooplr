@@ -1,14 +1,27 @@
-first{
-  git init
+first git{
   git config --global user.name "catalist"
   $ git config --global user.email "farouki.taoufik@gmail.com"
+}
+
+repo{
+  git init
   git remote add origin https://github.com/catalist20/ooplr.git
   git fetch origin
   git pull origin master
 }
 
-second{
+pull{
   git init
   git remote add origin https://github.com/catalist20/ooplr.git
   git pull origin master
+}
+
+add/del remote{
+  git remote -v
+  git remote rm name
+  git remote add name url
+}
+
+push{
+  git push -f name branch
 }
