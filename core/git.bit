@@ -1,6 +1,14 @@
-git init
-git config --global user.name "catalist"
-$ git config --global user.email "farouki.taoufik@gmail.com"
-git remote add origin https://github.com/catalist20/ooplr.git
-git fetch origin
-git pull origin master
+first{
+  git init
+  git config --global user.name "catalist"
+  $ git config --global user.email "farouki.taoufik@gmail.com"
+  git remote add origin https://github.com/catalist20/ooplr.git
+  git fetch origin
+  git pull origin master
+}
+
+second{
+  git init
+  git remote add origin https://github.com/catalist20/ooplr.git
+  git pull origin master
+}
