@@ -25,3 +25,7 @@ add/del remote{
 push{
   git push -f name branch
 }
+
+ignore{
+  
+}
