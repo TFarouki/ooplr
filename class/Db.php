@@ -57,6 +57,7 @@
         }
       }
       return false;
+
     }
 
     public function update($table , $id, $fields){
