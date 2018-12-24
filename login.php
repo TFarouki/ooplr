@@ -14,6 +14,9 @@
       ));
       if($validation->passed()){
         $user = new User();
+        //$remeber = (Input::get("remember")==="on")?true:false;
+        //die(($remeber)?"ok":"not");
+        die("is : " . Input::get("remember"));
         if($user->login(Input::get("username"),Input::get("password"))){
           Redirect::to("index.php");
         }else{
@@ -41,6 +44,11 @@
       <div class="field">
         <label for="passwprd">password</label>
         <input type="password" name="password" id="password" value="">
+      </div>
+      <div class="field">
+        <label for="remember">
+          <input type="checkbox" name="remember" id="remember" value=""> Remember me
+        </label>
       </div>
       <input type="hidden" name="token" id="token" value="<?php echo Token::generate(); ?>">
       <button type="submit" name="submit">submit</button>
