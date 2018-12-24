@@ -43,7 +43,8 @@
               'salt' => $salt,
               'name' => Input::get('name'),
               'joined' => date('Y-m-d H:i:s'),
-              'group' => 1
+              'group' => 1,
+              "actif" => 0
             ));
           }catch(Exception $e){
             die($e->getMessage());
@@ -51,7 +52,9 @@
           Session::flash("success" , "you have been registred successfuly!..");
           Redirect::to("index.php");
         }else{
-          print_r($validation->errors());
+          foreach ($validation->errors() as $error) {
+            echo $error ."<br>";
+          }
         }
       }
     ?>
