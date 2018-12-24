@@ -2,7 +2,10 @@
 <?php
   require_once 'core/init.php';
 
-
+  $checklogout = new User();
+  if ($checklogout->exists()) {
+    $checklogout->logout();
+  }
 
 
   if (Input::exists()) {
@@ -14,10 +17,11 @@
       ));
       if($validation->passed()){
         $user = new User();
-        if($user->login(Input::get("username"),Input::get("password"))){
+        $remember = (Input::get("remember")==="on")?true:false;
+        if($user->login(Input::get("username"),Input::get("password"),$remember)){
           Redirect::to("index.php");
         }else{
-          echo "Sorry, username and password are inccorect ,please try again.";
+          echo "Sorry, username and password are incorrect ,please try again.";
         }
       }else{
         foreach ($validation->errors() as $error) {
@@ -41,6 +45,10 @@
       <div class="field">
         <label for="passwprd">password</label>
         <input type="password" name="password" id="password" value="">
+      </div>
+      <div class="field">
+        <label for="remember">
+        <input type="checkbox" name="remember" id="remember">Remember me</label>
       </div>
       <input type="hidden" name="token" id="token" value="<?php echo Token::generate(); ?>">
       <button type="submit" name="submit">submit</button>
